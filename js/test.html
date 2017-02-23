@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Title</title>
+
+<script src="codemirror/lib/codemirror.js"></script>
+<script src="codemirror/mode/clike/clike.js"></script>
+
+<link rel="stylesheet" href="codemirror/lib/codemirror.css">
+<link rel="stylesheet" href="codemirror/theme/base16-light.css">
+
+<script src="speedtype.js"></script>
+</head>
+
+<body>
+    <h1>Test 1</h1>
+    <div id="test1"></div>
+
+    <script>
+        var test1 = document.getElementById("test1");
+        var speedType1 = new SpeedType({"origElem": test1});
+    </script>
+</body>
+</html>
