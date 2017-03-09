@@ -46,7 +46,7 @@ SpeedType.prototype.createEditor = function() {
 
     //Call CodeMirror API to create editor object
     this.editor = CodeMirror(this.editorDiv, {
-        value: "public class",
+        value: "",
         lineNumbers: true,
         mode: this.language,
         theme: "base16-light",
