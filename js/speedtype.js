@@ -1,12 +1,12 @@
 /**
  * Author: Siwei "Robert" Li (RSLi)
- * Date: February 23rd, 2017
- * Updated: February 23rd, 2017
+ * Date: 2/23/2017
+ * Updated: 3/14/2017
+ *
+ * Dependency:
+ * JQuery
+ * CodeMirror
  */
-
-//TODO: Support language other than java
-//TODO: be able to bind to other code pieces, to check whether code typed is consistant
-//TODO: record time used when start typing
 
 function SpeedType(options) {
     if (options) {
@@ -62,3 +62,62 @@ SpeedType.prototype.createEditor = function() {
 SpeedType.prototype.appendElement = function(elem) {
     elem.appendChild(this.containerDiv);
 };
+
+/**
+ * Send code pieces through post request to a remote server's implementation of SpeedType
+ */
+SpeedType.remoteDisplay = function(codeString, remoteURL, options) {
+    var form = document.createElement("FORM");
+
+    var field_code = document.createElement("input");
+    field_code.setAttribute("type", "hidden");
+    field_code.setAttribute("name", 'content');
+    field_code.setAttribute("value", codeString);
+
+    var field_options = document.createElement("input");
+    field_options.setAttribute("type", "hidden");
+    field_options.setAttribute("name", 'options');
+    field_options.setAttribute("value", options);
+
+    form.appendChild(field_code);
+    form.appendChild(field_options);
+
+    form.method = 'post';
+    form.action = remoteURL;
+
+    document.body.appendChild(form);
+    form.submit();
+};
+
+/**
+ * Display Standard SpeedType from Standard Sphinx code-block/high-light directive
+ * TODO: Modal option for smaller screen
+ * TODO: Verticle option for longer code pieces
+ */
+SpeedType.sphinxDisplay = function(preObj, options) {
+    speedType = new SpeedType(options);
+    $(preObj).parent().append(speedType.containerDiv);
+};
+
+/**
+ * Create button on each Sphinx code-block that can display SpeedType
+ */
+SpeedType.sphinxPageInit = function() {
+    $(".highlight").each(function(index) {
+        var preObj = $(this).find("pre");
+        var button = document.createElement("BUTTON");
+        button.value = "Open SpeedType";
+        button.addEventListener('click', function() {
+            sphinxDisplay(preObj, {
+                'language': 'text/x-java' //TODO: Automatic language detection
+            });
+        }, false);
+
+        $(this).append(button);
+    });
+};
+
+/**
+ * Execute SpeedType.sphinxPageInit()
+ */
+$(document).ready(SpeedType.sphinxPageInit);
