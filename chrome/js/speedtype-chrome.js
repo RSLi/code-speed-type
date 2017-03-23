@@ -1,6 +1,6 @@
 /**
  * Author: Siwei "Robert" Li (RSLi)
- * Migrated from Sphinx Extension speedtype.js
+ * Scanning code on web to create speed code typing practice!
  */
 
 function SpeedType(options) {
@@ -118,6 +118,6 @@ SpeedType.sphinxPageInit = function() {
 };
 
 /**
- * Execute SpeedType.sphinxPageInit()
+ * Execute initialization method
  */
 $(document).ready(SpeedType.sphinxPageInit);

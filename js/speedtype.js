@@ -1,11 +1,6 @@
 /**
  * Author: Siwei "Robert" Li (RSLi)
- * Date: 2/23/2017
- * Updated: 3/14/2017
- *
- * Dependency:
- * JQuery
- * CodeMirror
+ * Scanning code on web to create speed code typing practice!
  */
 
 function SpeedType(options) {
@@ -106,18 +101,23 @@ SpeedType.sphinxPageInit = function() {
     $(".highlight").each(function(index) {
         var preObj = $(this).find("pre");
         var button = document.createElement("BUTTON");
-        button.value = "Open SpeedType";
+        $(button).html("SpeedType");
         button.addEventListener('click', function() {
-            sphinxDisplay(preObj, {
+            SpeedType.sphinxDisplay(preObj, {
                 'language': 'text/x-java' //TODO: Automatic language detection
             });
         }, false);
 
-        $(this).append(button);
+        $(this).parent().prepend(button);
+        $(button).position({
+            my: "right top",
+            at: "right top",
+            of: preObj
+        })
     });
 };
 
 /**
- * Execute SpeedType.sphinxPageInit()
+ * Execute initialization method
  */
 $(document).ready(SpeedType.sphinxPageInit);
