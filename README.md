@@ -1,2 +1,4 @@
 # sphinx-speed-type
-A Python Sphinx extension that creates code typing practices with directives. Working in progress.
+Scanning code on web and creating Speed Typing practice for code, available as:
+- Google Chrome Extension
+- Sphinx Extension
