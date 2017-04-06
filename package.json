@@ -1,0 +1,23 @@
+{
+  "name": "speedtype",
+  "version": "0.2.1",
+  "description": "Speed Typing practice for Code on Web",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/RSLi/code-speed-type.git"
+  },
+  "keywords": [
+    "chrome-extension",
+    "sphinx"
+  ],
+  "author": "RSLi",
+  "license": "UNLICENSED",
+  "bugs": {
+    "url": "https://github.com/RSLi/code-speed-type/issues"
+  },
+  "homepage": "https://github.com/RSLi/code-speed-type#readme"
+}
