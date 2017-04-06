@@ -86,6 +86,7 @@ SpeedType.remoteDisplay = function(codeString, remoteURL, options) {
 
 /**
  * Display Standard SpeedType from Standard Sphinx code-block/high-light directive
+ * Temporarily also used by markdown version
  * TODO: Modal option for smaller screen
  * TODO: Verticle option for longer code pieces
  */
@@ -102,6 +103,7 @@ SpeedType.sphinxPageInit = function() {
         var preObj = $(this).find("pre");
         var button = document.createElement("BUTTON");
         $(button).html("SpeedType");
+        $(button).addClass("speedtype-btn")
         button.addEventListener('click', function() {
             SpeedType.sphinxDisplay(preObj, {
                 'language': 'text/x-java' //TODO: Automatic language detection
@@ -113,11 +115,49 @@ SpeedType.sphinxPageInit = function() {
             my: "right top",
             at: "right top",
             of: preObj
-        })
+        });
+
+        $(this).parent().parent().addClass("speedtype-btn-container");
     });
+
+    document.styleSheets[0].addRule('.speedtype-btn-container .speedtype-btn','display:none');
+    document.styleSheets[0].addRule('.speedtype-btn-container:hover .speedtype-btn','display:inline');
 };
 
 /**
- * Execute initialization method
+ * Create button on each standard markdown code-block that can display SpeedType
  */
-$(document).ready(SpeedType.sphinxPageInit);
+SpeedType.markdownPageInit = function() {
+    $("pre > code").each(function(index) {
+        var preObj = $(this).parent();
+        var button = document.createElement("BUTTON");
+        $(button).html("SpeedType");
+        $(button).addClass("speedtype-btn")
+        button.addEventListener('click', function() {
+            SpeedType.sphinxDisplay(preObj, {
+                'language': 'text/x-java' //TODO: Automatic language detection
+            });
+        }, false);
+
+        $(this).parent().prepend(button);
+        $(button).position({
+            my: "right top",
+            at: "right top",
+            of: preObj
+        });
+
+        $(this).parent().addClass("speedtype-btn-container");
+    });
+
+    document.styleSheets[0].addRule('.speedtype-btn-container .speedtype-btn','display:none');
+    document.styleSheets[0].addRule('.speedtype-btn-container:hover .speedtype-btn','display:inline');
+};
+
+/**
+ * Execute initialization methods
+ * TODO: Try to guess whether this page is from md or rst and only call the respective init method
+ */
+$(document).ready(function() {
+    SpeedType.sphinxPageInit();
+    //SpeedType.markdownPageInit();
+});
