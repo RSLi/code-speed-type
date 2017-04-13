@@ -19,5 +19,8 @@
   "bugs": {
     "url": "https://github.com/RSLi/code-speed-type/issues"
   },
-  "homepage": "https://github.com/RSLi/code-speed-type#readme"
+  "homepage": "https://github.com/RSLi/code-speed-type#readme",
+  "devDependencies": {
+    "webpack": "^2.3.3"
+  }
 }
