@@ -35,6 +35,9 @@ MainInterface.prototype.createTopContainer = function() {
     });
     leftEditor.refresh();
     rightEditor.refresh();
+
+    //TODO: fix styling issue
+    $(".CodeMirror").css('font-size',"20pt");
     return topContainer;
 };
 
