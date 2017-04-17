@@ -1,4 +1,6 @@
+#webpack build
 dist
+chrome/dist
 # Logs
 logs
 *.log
