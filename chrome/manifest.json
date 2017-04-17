@@ -12,7 +12,6 @@
 
     "content_scripts": [{
         "matches": ["<all_urls>"],
-        "js": ["js/jquery-3.2.0.min.js", "js/jquery-ui.min.js", "js/codemirror/lib/codemirror.js", "js/speedtype-chrome.js"],
-        "css": ["js/codemirror/lib/codemirror.css"]
+        "js": ["js/speedtype-chrome.js"]
     }]
 }
