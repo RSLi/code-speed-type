@@ -22,6 +22,7 @@
   },
   "homepage": "https://github.com/RSLi/code-speed-type#readme",
   "devDependencies": {
+    "css-loader": "^0.28.0",
     "extract-text-webpack-plugin": "^2.1.0",
     "webpack": "^2.3.3"
   },
