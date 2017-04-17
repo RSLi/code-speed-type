@@ -4,6 +4,7 @@
   "description": "Speed Typing practice for Code on Web",
   "main": "index.js",
   "scripts": {
+    "build": "webpack",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -21,6 +22,13 @@
   },
   "homepage": "https://github.com/RSLi/code-speed-type#readme",
   "devDependencies": {
+    "extract-text-webpack-plugin": "^2.1.0",
     "webpack": "^2.3.3"
+  },
+  "dependencies": {
+    "codemirror": "^5.25.0",
+    "jquery": "^3.2.1",
+    "jquery-ui-bundle": "^1.12.1",
+    "moment": "^2.18.1"
   }
 }
