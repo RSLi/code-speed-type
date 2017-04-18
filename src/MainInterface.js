@@ -1,6 +1,9 @@
 function MainInterface(options) {
     this.options = options;
     this.topContainer = this.createTopContainer();
+    this.switchCount = 0;
+    this.editorState = {};
+    this.editorState.typing = false;
 }
 
 MainInterface.prototype.createTopContainer = function() {
@@ -18,6 +21,8 @@ MainInterface.prototype.createTopContainer = function() {
     //construct tableMainEditors <tr> with left and right editor <td> containers
     var leftEditorContainer = document.createElement("td");
     var rightEditorContainer = document.createElement("td");
+    this.leftEditorContainer = leftEditorContainer;
+    this.rightEditorContainer = rightEditorContainer;
     tableMainEditors.appendChild(leftEditorContainer);
     tableMainEditors.appendChild(rightEditorContainer);
     $(leftEditorContainer).css("width", $(document).width() / 2 + "px");
@@ -35,14 +40,33 @@ MainInterface.prototype.createTopContainer = function() {
     });
     leftEditor.refresh();
     rightEditor.refresh();
+    this.leftEditor = leftEditor;
+    this.rightEditor = rightEditor;
 
     //TODO: fix styling issue
     $(".CodeMirror").css('font-size',"20pt");
+    $(rightEditorContainer).hide(); // hide coding window initially
     return topContainer;
 };
 
 MainInterface.prototype.getView = function() {
     return this.topContainer;
 };
+
+MainInterface.prototype.switchPanel = function() {
+    if (this.editorState.typing) {
+        $(this.rightEditorContainer).hide();
+        $(this.leftEditorContainer).show();
+        this.editorState.typing = false;
+        this.switchCount = this.switchCount + 1;
+        console.log("switchCount: " + this.switchCount);
+    } else {
+        $(this.leftEditorContainer).hide();
+        $(this.rightEditorContainer).show();
+        this.editorState.typing = true;
+    }
+    this.leftEditor.refresh();
+    this.rightEditor.refresh();
+}
 
 module.exports = MainInterface;
