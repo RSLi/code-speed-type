@@ -46,6 +46,7 @@ MainInterface.prototype.createTopContainer = function() {
     $(leftEditorContainer).css("height", $(window).height() + "px");
     $(rightEditorContainer).css("height", $(window).height() + "px");
     $(".CodeMirror").css("height", $(window).height() + "px");
+    // Use actual CodeMirror API to accomplish full screen view
     leftEditor.setSize("100%", "100%");
     rightEditor.setSize("100%", "100%");
     $(rightEditorContainer).hide(); // hide coding window initially

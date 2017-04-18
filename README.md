@@ -10,4 +10,7 @@ For People who Want to:
 - Enhance memory for common coding interview questions
 - Learn from open source code in a brainless and painless manner
 
-Currently designed to scan sphinx based documentation (covers a lot of libraries' documentation pages). Better support for markdown and Github are under development.
+Currently designed to scan:
+- Github
+- Sphinx-based documentation `.. code-block::`
+- Markdown-based documentation `<code>`
