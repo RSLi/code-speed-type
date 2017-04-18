@@ -60,13 +60,16 @@ MainInterface.prototype.switchPanel = function() {
         this.editorState.typing = false;
         this.switchCount = this.switchCount + 1;
         console.log("switchCount: " + this.switchCount);
+        this.leftEditor.refresh();
+        this.leftEditor.focus();
     } else {
         $(this.leftEditorContainer).hide();
         $(this.rightEditorContainer).show();
         this.editorState.typing = true;
+        this.rightEditor.refresh();
+        this.rightEditor.focus();
     }
-    this.leftEditor.refresh();
-    this.rightEditor.refresh();
+
 }
 
 module.exports = MainInterface;
