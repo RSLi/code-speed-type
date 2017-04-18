@@ -10,5 +10,10 @@ $(document).ready(function() {
     console.log("Document ready. SpeedType initiating");
     var mainInterface = new MainInterface({});
     KeyBindings.initKeyBinding(mainInterface);
-    document.body.appendChild(mainInterface.getView());
+    showViewWholeScreen(mainInterface);
 });
+
+function showViewWholeScreen(mainInterface) {
+    $(document.body).empty();
+    document.body.appendChild(mainInterface.getView());
+}

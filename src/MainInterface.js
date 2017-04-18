@@ -25,8 +25,6 @@ MainInterface.prototype.createTopContainer = function() {
     this.rightEditorContainer = rightEditorContainer;
     tableMainEditors.appendChild(leftEditorContainer);
     tableMainEditors.appendChild(rightEditorContainer);
-    $(leftEditorContainer).css("width", $(document).width() / 2 + "px");
-    $(rightEditorContainer).css("width", $(document).width() / 2 + "px");
     //prepare CodeMirror instances
     var leftEditor = CodeMirror(leftEditorContainer, {
         mode: "text/x-java",
@@ -44,7 +42,12 @@ MainInterface.prototype.createTopContainer = function() {
     this.rightEditor = rightEditor;
 
     //TODO: fix styling issue
-    $(".CodeMirror").css('font-size',"20pt");
+    $(".CodeMirror").css('font-size',"20pt"); // make font small to fit more code in one screen
+    $(leftEditorContainer).css("height", $(window).height() + "px");
+    $(rightEditorContainer).css("height", $(window).height() + "px");
+    $(".CodeMirror").css("height", $(window).height() + "px");
+    leftEditor.setSize("100%", "100%");
+    rightEditor.setSize("100%", "100%");
     $(rightEditorContainer).hide(); // hide coding window initially
     return topContainer;
 };
