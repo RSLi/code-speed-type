@@ -12,5 +12,6 @@ For People who Want to:
 
 Currently designed to scan:
 - Github
+    - Click Raw button to initiate
 - Sphinx-based documentation `.. code-block::`
 - Markdown-based documentation `<code>`
