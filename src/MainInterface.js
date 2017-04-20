@@ -18,6 +18,8 @@ MainInterface.prototype.createTopContainer = function() {
     var tableMainEditors = document.createElement("tr");
     tableContainer.appendChild(tableToolBar);
     tableContainer.appendChild(tableMainEditors);
+    $(tableToolBar).height("35px");
+    $(tableToolBar).css("background-color", "white");
     //construct tableMainEditors <tr> with left and right editor <td> containers
     var leftEditorContainer = document.createElement("td");
     var rightEditorContainer = document.createElement("td");
@@ -73,7 +75,12 @@ MainInterface.prototype.switchPanel = function() {
         this.rightEditor.refresh();
         this.rightEditor.focus();
     }
+};
 
-}
+MainInterface.prototype.setCodeToDisplay = function(codeToDisplay) {
+    this.leftEditor.setValue(codeToDisplay);
+    this.leftEditor.refresh();
+    this.leftEditor.focus(); //TODO: might be deprecated when left editor no longer needs focus
+};
 
 module.exports = MainInterface;
