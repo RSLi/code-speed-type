@@ -20,6 +20,8 @@ MainInterface.prototype.createTopContainer = function() {
     tableContainer.appendChild(tableMainEditors);
     $(tableToolBar).height("35px");
     $(tableToolBar).css("background-color", "white");
+    $(tableToolBar).attr("id", "speedtype-toolbar");
+    $(tableToolBar).html("SpeedType: Start Typing");//TODO: Temporary toolbar display
     //construct tableMainEditors <tr> with left and right editor <td> containers
     var leftEditorContainer = document.createElement("td");
     var rightEditorContainer = document.createElement("td");
@@ -75,6 +77,7 @@ MainInterface.prototype.switchPanel = function() {
         this.rightEditor.refresh();
         this.rightEditor.focus();
     }
+    $("#speedtype-toolbar").html("SpeedType: ------- Current Count: " + this.switchCount);//TODO: Temporary Toolbar solution
 };
 
 MainInterface.prototype.setCodeToDisplay = function(codeToDisplay) {
