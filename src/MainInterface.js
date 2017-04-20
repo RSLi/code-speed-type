@@ -21,7 +21,7 @@ MainInterface.prototype.createTopContainer = function() {
     $(tableToolBar).height("35px");
     $(tableToolBar).css("background-color", "white");
     $(tableToolBar).attr("id", "speedtype-toolbar");
-    $(tableToolBar).html("SpeedType: Start Typing");//TODO: Temporary toolbar display
+    $(tableToolBar).html("SpeedType: Click to Start; ctrl to switch between display and typing screen");//TODO: Temporary toolbar display
     //construct tableMainEditors <tr> with left and right editor <td> containers
     var leftEditorContainer = document.createElement("td");
     var rightEditorContainer = document.createElement("td");
@@ -40,8 +40,6 @@ MainInterface.prototype.createTopContainer = function() {
         theme: "monokai",
         lineNumbers: true
     });
-    leftEditor.refresh();
-    rightEditor.refresh();
     this.leftEditor = leftEditor;
     this.rightEditor = rightEditor;
 
@@ -54,6 +52,10 @@ MainInterface.prototype.createTopContainer = function() {
     leftEditor.setSize("100%", "100%");
     rightEditor.setSize("100%", "100%");
     $(rightEditorContainer).hide(); // hide coding window initially
+
+    leftEditor.setOption("readOnly", true);
+    leftEditor.refresh();
+    rightEditor.refresh();
     return topContainer;
 };
 
@@ -83,7 +85,7 @@ MainInterface.prototype.switchPanel = function() {
 MainInterface.prototype.setCodeToDisplay = function(codeToDisplay) {
     this.leftEditor.setValue(codeToDisplay);
     this.leftEditor.refresh();
-    this.leftEditor.focus(); //TODO: might be deprecated when left editor no longer needs focus
+    this.leftEditor.focus();
 };
 
 module.exports = MainInterface;
