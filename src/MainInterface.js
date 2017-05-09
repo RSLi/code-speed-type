@@ -21,7 +21,7 @@ MainInterface.prototype.createTopContainer = function() {
     $(tableToolBar).height("35px");
     $(tableToolBar).css("background-color", "white");
     $(tableToolBar).attr("id", "speedtype-toolbar");
-    $(tableToolBar).html("SpeedType: Click to Start; ctrl to switch between display and typing screen");//TODO: Temporary toolbar display
+    $(tableToolBar).html("<b>code-speed-type</b> <p>Click the screen below to start, and you will be presented with the `target screen`. Try to memorize the code as much as possible. Then click CTRL to switch between the `target screen` and the `typing screen`. The goal is to type all the code in the `target screen` into the `typing screen`. The number of times you switch back to the `typing screen` will be recorded. The fewer the number the higher the score.</p>");
     //construct tableMainEditors <tr> with left and right editor <td> containers
     var leftEditorContainer = document.createElement("td");
     var rightEditorContainer = document.createElement("td");
@@ -79,7 +79,7 @@ MainInterface.prototype.switchPanel = function() {
         this.rightEditor.refresh();
         this.rightEditor.focus();
     }
-    $("#speedtype-toolbar").html("SpeedType: ------- Current Count: " + this.switchCount);//TODO: Temporary Toolbar solution
+    $("#speedtype-toolbar").html("<b>code-speed-type</b> ------- Current Count: " + this.switchCount);//TODO: Temporary Toolbar solution
 };
 
 MainInterface.prototype.setCodeToDisplay = function(codeToDisplay) {
