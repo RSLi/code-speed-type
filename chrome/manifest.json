@@ -1,9 +1,9 @@
 {
     "manifest_version": 2,
 
-    "name": "SpeedType",
+    "name": "Code Speed Type",
     "description": "This extension converts code pieces into timed typing games",
-    "version": "1.0",
+    "version": "0.2",
 
     "permissions": [
         "activeTab",
