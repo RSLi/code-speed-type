@@ -1,6 +1,7 @@
 # code-speed-type
 Scanning code on web and creating fun Speed Typing practice for code, available as:
 - Google Chrome Extension (ready for basic usage)
+    - [DOWNLOAD HERE](https://chrome.google.com/webstore/detail/code-speed-type/ldikcnokdbgjnococahjliaaiknpfhoj?hl=en-US)
 - Sphinx Extension (Not ready)
 
 For People who Want to:
