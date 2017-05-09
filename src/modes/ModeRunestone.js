@@ -35,6 +35,7 @@ ModeRunestone.prototype.initMode = function(mainInterface) {
         "z-index": 10000
     });
 
+    // function to close overlay
     var closeOverlay = function() {
         $(overlay).css({
             position: "fixed",
@@ -50,6 +51,13 @@ ModeRunestone.prototype.initMode = function(mainInterface) {
         });
     };
 
+    // button inside overlay that calls the closeOverlay function
+    var closeOverlayButton = document.createElement("button");
+    $(closeOverlayButton).html("X");
+    $(closeOverlayButton).click(closeOverlay);
+    $(overlay).prepend(closeOverlayButton);
+
+    // function to open overlay, called by speedtype-btn created below
     var openOverlay = function() {
         $(overlay).css("opacity", 1);
         $(overlay).css("visibility", "visible");
