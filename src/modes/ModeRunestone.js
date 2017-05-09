@@ -26,13 +26,13 @@ ModeRunestone.prototype.initMode = function(mainInterface) {
         position: "fixed",
         width: "100%",
         height: "100%",
-        top: "100px",
+        top: 0,
         left: 0,
         background: "white",
         opacity: 0,
         visibility: "hidden",
         transition: "all .5s ease",
-        "z-index": 100
+        "z-index": 10000
     });
 
     var closeOverlay = function() {
@@ -46,7 +46,7 @@ ModeRunestone.prototype.initMode = function(mainInterface) {
             opacity: 0,
             visibility: "hidden",
             transition: "all .5s ease",
-            "z-index": 100
+            "z-index": 10000
         });
     };
 
