@@ -67,18 +67,20 @@ ModeRunestone.prototype.initMode = function(mainInterface) {
      * Init buttons
      */
     $(".highlight").each(function(index) {
-        var preObj = $(this).find("pre");
+        var preObj = $(this).find("pre"); // IMPORTANT: preObj is a Jquery object due to historical reasons
         var button = document.createElement("BUTTON");
         $(button).html("SpeedType");
         $(button).addClass("speedtype-btn");
-        button.addEventListener('click', function() {
-            openOverlay();
-
-            //Find code to display
-            //TODO: replace dummy codeToDisplay
-            var codeToDisplay = "Hello World!";
-            mainInterface.setCodeToDisplay(codeToDisplay);
-        }, false);
+        // add respective listeners for the speedtype buttons
+        button.addEventListener('click', (function(preObj, mainInterface) {
+            return function() {
+                openOverlay();
+                //Find code to display
+                var codeToDisplay = preObj.text();
+                console.log(codeToDisplay);
+                mainInterface.setCodeToDisplay(codeToDisplay);
+            };
+        })(preObj, mainInterface), false);
 
         $(this).parent().prepend(button);
         // Deprecated JQuery UI solution
