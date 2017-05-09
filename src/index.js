@@ -5,6 +5,7 @@ import 'codemirror/mode/clike/clike.js';
 import MainInterface from './MainInterface.js';
 import KeyBindings from './KeyBindings.js';
 import ModeGithubRaw from './modes/ModeGithubRaw.js';
+import ModeRunestone from './modes/ModeRunestone.js';
 
 
 $(document).ready(function() {
@@ -16,8 +17,9 @@ $(document).ready(function() {
 
 function prepareSpeedType(mainInterface) {
     console.log("Checking url: " + window.location.hostname);
-    var mode = new ModeGithubRaw();
-    if (mode.isApplicable()) {
-        mode.initMode(mainInterface);
+    if (ModeGithubRaw.prototype.isApplicable()) {
+        ModeGithubRaw.prototype.initMode(mainInterface);
+    } else if (ModeRunestone.prototype.isApplicable()) {
+        ModeRunestone.prototype.initMode(mainInterface);
     }
 }
