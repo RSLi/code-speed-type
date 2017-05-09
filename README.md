@@ -14,4 +14,5 @@ Currently designed to scan:
 - Github
     - Click Raw button to initiate
 - Sphinx-based documentation `.. code-block::`
-- Markdown-based documentation `<code>`
+    - Enabled in [Runestone Interactive Ebooks](http://interactivepython.org)
+    - [Quick Sample](http://interactivepython.org/runestone/static/pythonds/BasicDS/SimpleBalancedParentheses.html)
